@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Joshua Lammon</title>
+    <link>/</link>
+    <description>Recent content on Joshua Lammon</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Tue, 31 Oct 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Bar Chart Business</title>
+      <link>/blog/bar-chart-business/</link>
+      <pubDate>Tue, 31 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/bar-chart-business/</guid>
+      <description>In this lesson on Data Scientology we will be constructing a bar plot on the 1980 MLB Team Homerun Distribution.
+First, like always, we must upload necessary libraries needed to perform the time series function. The three libraries we need are as follows:
+library(Lahman) library(sqldf) library(ggplot2) Next, we must execute a query to extract the data we want to create a bar plot on. We want to see how many homeruns each MLB team totaled in 1980.</description>
+    </item>
+    
+    <item>
+      <title>Histograms 101</title>
+      <link>/blog/histograms-101/</link>
+      <pubDate>Tue, 31 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/histograms-101/</guid>
+      <description>Let’s create a histogram that analyzes the body weight distribution of all MLB baseball players.
+First, we must upload the three necessary libraries needed to perform the histogram function. These three include the Lahman, sqldf, and ggplot2 libraries.
+library(Lahman) library(sqldf) library(ggplot2) Second, we must execute a query to extract the data for all MLB players’ weight.
+# extracting the data query&amp;lt;-&amp;quot;SELECT weight FROM Master&amp;quot; result&amp;lt;-sqldf(query) Next, we want to write a “ggplot” function that will allow us to create the histogram and visualize the data.</description>
+    </item>
+    
+    <item>
+      <title>Time Series Lessons</title>
+      <link>/blog/time-series-lessons/</link>
+      <pubDate>Sun, 08 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/time-series-lessons/</guid>
+      <description>Welcome back to Data Scientology. Today we will be looking at how to create a time series plot on some Babe Ruth’s HR career homerun totals.
+First, like always, we must upload necessary libraries needed to perform the time series function. The three libraries we need are as follows:
+library(Lahman) library(sqldf) library(ggplot2) Next, we must execute a query to extract the data we want to create a time-series plot on. We want each year Babe Ruth played in the MLB and we also want his homerun totals.</description>
+    </item>
+    
+    <item>
+      <title>Scatterplot Tutorial</title>
+      <link>/blog/scatterplot-tutorial/</link>
+      <pubDate>Fri, 06 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/scatterplot-tutorial/</guid>
+      <description>Welcome back to Data Scientology. Today we will be looking at how to create a scatterplot on MLB career homerun totals versus career strikeouts.
+First, like always, we must upload necessary libraries needed to perform the time series function. The three libraries we need are as follows:
+library(Lahman) library(sqldf) library(ggplot2) Next, we must execute a query to extract the data we want to create a scatterplot on. We want to select all players by playerID, their homerun totals and strikeout totals.</description>
+    </item>
+    
+    <item>
+      <title>Projects</title>
+      <link>/projects/</link>
+      <pubDate>Sun, 02 Oct 2016 22:55:05 -0400</pubDate>
+      
+      <guid>/projects/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

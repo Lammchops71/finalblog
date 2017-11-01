@@ -1,0 +1,47 @@
+---
+title: Bar Chart Business
+author: Joshua Lammon
+date: '2017-10-31'
+slug: bar-chart-business
+categories:
+  - Data Science
+tags:
+  - Data Science
+  - Data
+  - Fun
+  - MLB
+---
+In this lesson on Data Scientology we will be constructing a bar plot on the 1980 MLB Team Homerun Distribution. 
+
+First, like always, we must upload necessary libraries needed to perform the time series function. The three libraries we need are as follows:
+```{r warning=FALSE, message=FALSE}
+library(Lahman)
+library(sqldf)
+library(ggplot2)
+```
+Next, we must execute a query to extract the data we want to create a bar plot on. We want to see how many homeruns each MLB team totaled in 1980. Luckily, they are both located in the Batting table so we just want to pull those two fields from the yearID "1980". 
+```{r}
+#Extracting the data
+query<-"SELECT name,HR
+FROM Teams
+WHERE yearID=1980
+ORDER BY HR"
+result<-sqldf(query)
+```
+Next, we want to write a "ggplot" function that will allow us to create the bar plot and visualize the data. To manipulate the graph, we must use the "aes" function which allows us to change the graph's aesthetics. We can choose many different colors to add personality to our graphs, and we can select different color for the bars and borders. To manually edit the title, we have to add a line indicated by the "+" symbol and the use the "ggtitle" function. We can also select the x and y-axis titles by changing the "xlab" and "ylab" functions. We also have to use the factor function to order the teams from greatest number of homeruns to the least amount.
+```{r}
+#visualizing the data
+ggplot()+
+  geom_bar(data=result,aes(x=name,y=HR),stat='identity', fill='red', color='dark red')+
+  coord_flip()+
+  ylab('Homeruns')+
+  xlab('MLB Team')+
+  ggtitle('1980 MLB Team Homerun Distribution')
+
+result$name<-factor(result$name,levels=result$name)
+```
+
+
+As you can see in the visualization above, we have illustrated the number of homeruns each MLB team hit in 1980. The Brewers had a strong season, accumulating over 200 homeruns.
+
+Hopefully this blog post was helpful and you now understand how to create a simple bar plot using R Markdown and ggplot. Please continue to check back in for future posts relating to data science. Feel free to contact me if you have any questions or comments. 

@@ -1,0 +1,44 @@
+---
+title: Scatterplot Tutorial
+author: Joshua Lammon
+date: '2017-10-06'
+slug: scatterplot-tutorial
+categories:
+  - Data Science
+tags:
+  - Data Science
+  - Data
+  - Fun
+  - MLB
+---
+Welcome back to Data Scientology. Today we will be looking at how to create a scatterplot on MLB career homerun totals versus career strikeouts.
+
+First, like always, we must upload necessary libraries needed to perform the time series function. The three libraries we need are as follows:
+```{r warning=FALSE, message=FALSE}
+library(Lahman)
+library(sqldf)
+library(ggplot2)
+```
+
+Next, we must execute a query to extract the data we want to create a scatterplot on. We want to select all players by playerID, their homerun totals and strikeout totals. Luckily, they are both located in the Batting table so we just want to pull those two fields and group them by playerID. Once we group them, we can calculate the sum of each. We also want to analyze the great hitters in the MLB so we will only look at players with 400 or more homeruns.
+```{r}
+query<-"SELECT playerID,sum(HR) AS Career_HR,sum(SO)AS Career_SO
+FROM Batting
+GROUP BY playerID
+HAVING sum(HR)>=400"
+result<-sqldf(query)
+```
+
+Next, we want to write a "ggplot" function that will allow us to create the scatterplot and visualize the data. To manipulate the graph, we must use the "aes" function which allows us to change the graph's aesthetics. We can choose many different colors to add personality to our graphs, and we can select different sizes for the individual points in our scatterplot. To manually edit the title, we have to add a line indicated by the "+" symbol and the use the "ggtitle" function. We can also select the x and y-axis titles by changing the "xlab" and "ylab" functions.
+```{r}
+#visualize the data
+ggplot()+
+  geom_point(data=result,aes(x=Career_SO, y=Career_HR), size=1.75, color="dark green")+
+  ggtitle("MLB Career Strikeouts vs. Homeruns for Great Hitters")+
+  xlab("Career Strikeouts")+
+  ylab("Career Homeruns")
+```
+
+As you can see in the visualization above, we have illustrated the greatest hitters' homeruns vs. strikeouts over their careers. 
+
+Hopefully this blog post was helpful and you now understand how to create a simple scatterplot using R Markdown and ggplot. Please continue to check back in for future posts relating to data science. Feel free to contact me if you have any questions or comments. 

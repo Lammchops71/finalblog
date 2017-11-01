@@ -1,0 +1,36 @@
+---
+title: Histograms 101
+author: Joshua Lammon
+date: '2017-10-31'
+slug: histograms-101
+categories:
+  - Data Science
+  - Data
+tags:
+  - Math
+  - Fun
+---
+
+
+
+<p>Let’s create a histogram that analyzes the body weight distribution of all MLB baseball players.</p>
+<p>First, we must upload the three necessary libraries needed to perform the histogram function. These three include the Lahman, sqldf, and ggplot2 libraries.</p>
+<pre class="r"><code>library(Lahman)
+library(sqldf)
+library(ggplot2)</code></pre>
+<p>Second, we must execute a query to extract the data for all MLB players’ weight.</p>
+<pre class="r"><code># extracting the data
+query&lt;-&quot;SELECT weight
+FROM Master&quot;
+result&lt;-sqldf(query)</code></pre>
+<p>Next, we want to write a “ggplot” function that will allow us to create the histogram and visualize the data. To manipulate the graph, we must use the “aes” function which allows us to change the graph’s aesthetics. We can choose many different colors to add personality to our graphs, and we can select different numbers of bins to change the width of each bar in the histogram. To manually edit the title, we have to add a line indicated by the “+” symbol and the use the “ggtitle” function. We can also select the x and y-axis titles by changing the “xlab” and “ylab” functions.</p>
+<pre class="r"><code># visualize the data
+#bins allows you to choose how many bars there are
+ggplot()+
+  geom_histogram(data=result, aes(x=weight), color=&quot;orange&quot;, fill=&quot;white&quot;, bins=50)+
+  ggtitle(&quot;Body Weight Distribution in MLB History&quot;)+
+  xlab(&quot;Player Weight&quot;)+
+  ylab(&quot;Number of Players&quot;)</code></pre>
+<p><img src="/post/2017-10-31-histograms-101_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>As you can see in the histogram above, the majority of MLB baseball players have fallen between 150 and 200lbs.</p>
+<p>Hopefully this blog post was informative and you now understand how to create a basic histogram using R Markdown and ggplot. Please continue to check back in for future posts relating to data science. Feel free to contact me if you have any questions or comments.</p>
